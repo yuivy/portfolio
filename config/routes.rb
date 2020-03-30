@@ -7,5 +7,10 @@ Rails.application.routes.draw do
   # 投稿内容を受け取る
   get 'posts/:id' => 'posts#show'
   # 投稿詳細ページ
+  get 'posts/:id/edit' => 'posts#edit'
+  # 投稿編集ページ
+  post 'posts/:id/update' => 'posts#update'
+  # 編集後の投稿内容を受け取る
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
