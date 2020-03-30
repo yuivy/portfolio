@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   # 投稿編集ページ
   post 'posts/:id/update' => 'posts#update'
   # 編集後の投稿内容を受け取る
-  
+  post 'posts/:id/destroy' => 'posts#destroy'
+  # 投稿内容の削除
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
