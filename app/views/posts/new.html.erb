@@ -3,7 +3,7 @@
 <%= form_tag("/posts/create") do %>
 
 <% @post.errors.full_messages.each do |message| %>
-  <%= message%>
+  <%= message %>
 <% end %>
 
 <textarea name="content"></textarea>
