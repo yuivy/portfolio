@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   # ユーザーの保存
   get '/signup' => 'users#new'
   # 新規ユーザー登録
+  get 'users/:id/edit' => 'users#edit'
+  # ユーザーの編集
+  post 'users/:id/update' => 'users#update'
+  # ユーザー編集後の内容を受け取る
   get 'posts/index' => 'posts#index'
   # 投稿一覧ページ
   get 'posts/new' => 'posts#new'
