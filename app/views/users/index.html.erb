@@ -2,5 +2,6 @@
 
 <% @users.each do |user| %>
 <p><%= user.name %></p>
+<img src="<%= "/user_images/#{user.image_name}" %>">
 <%= link_to(user.name, "/users/#{user.id}") %>
 <% end %>
