@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   # トップページ
   get '/about' => 'home#about'
   # サービス紹介ページ
+  get 'users/index' => 'users#index'
+  # ユーザー一覧ページ
+  get 'users/:id' => 'users#show'
+  # ユーザー詳細ページ
   post 'users/create' => 'users#create'
   # ユーザーの保存
   get '/signup' => 'users#new'
