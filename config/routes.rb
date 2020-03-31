@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  post 'users/create' => 'users#create'
+  # ユーザーの保存
   get '/signup' => 'users#new'
-  # 新規登録
+  # 新規ユーザー登録
   get 'posts/index' => 'posts#index'
   # 投稿一覧ページ
   get 'posts/new' => 'posts#new'
