@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/signup' => 'users#new'
+  # 新規登録
   get 'posts/index' => 'posts#index'
   # 投稿一覧ページ
   get 'posts/new' => 'posts#new'
