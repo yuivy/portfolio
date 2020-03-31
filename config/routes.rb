@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get '/' => 'home#top'
+  # トップページ
+  get '/about' => 'home#about'
+  # サービス紹介ページ
   post 'users/create' => 'users#create'
   # ユーザーの保存
   get '/signup' => 'users#new'
