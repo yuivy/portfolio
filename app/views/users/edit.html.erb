@@ -4,10 +4,12 @@
   <%= message %>
 <% end %>
 
-<%= form_tag("/users/#{@user.id}/update") do %>
+<%= form_tag("/users/#{@user.id}/update", {multipart: true}) do %>
 <P>ユーザー名</P>
 <input name="name" value="<%= @user.name %>">
 <p>メールアドレス</p>
 <input name="email" value="<%= @user.email %>">
 <input type="submit" value="保存">
+<p>画像</p>
+<input name="image" type="file">
 <% end %>
