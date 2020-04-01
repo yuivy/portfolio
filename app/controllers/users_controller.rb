@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  before_action :authenticate_user, {only: [:index, :sohw, :edit, :update]}
+  before_action :authenticate_user, {only: [:index, :show, :edit, :update]}
   # onlyをつけることで指定したアクションでのみメソッドを使うことができる
   before_action :forbit_login_user, {only: [:new, :create, :login, :login_form]}
   
