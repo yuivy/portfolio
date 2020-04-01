@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   # onlyをつけることで指定したアクションでのみメソッドを使うことができる
   before_action :forbit_login_user, {only: [:new, :create, :login, :login_form]}
   
+  before_action :ensure_correct_user, {only: [:edit, :update]}
+
   def index
     @users = User.all
   end
@@ -77,5 +79,15 @@ class UsersController < ApplicationController
     session[:user_id] = nil
     flash[:notice] = "ログアウトしました"
     redirect_to("/login")
+  end
+  
+  def ensure_correct_user
+    # 正しいユーザーか確かめるメソッド
+    if @current_user.id != params[:id].to_i
+      # paramsは文字列として持ってくるのでidを数列にするためには「.to_i」をつける
+      # 「!=」は"等しくないという"意味
+      flash[:notice] = "あなたに権限はありません"
+      redirect_to("/posts/index")
+    end
   end
 end
