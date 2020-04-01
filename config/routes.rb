@@ -33,5 +33,6 @@ Rails.application.routes.draw do
   # ユーザーのログイン
   post '/login' => 'users#login'
   # ログイン情報を受け取る
+  post '/logout' => 'users#logout'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
