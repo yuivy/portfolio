@@ -29,5 +29,9 @@ Rails.application.routes.draw do
   # 編集後の投稿内容を受け取る
   post 'posts/:id/destroy' => 'posts#destroy'
   # 投稿内容の削除
+  get '/login' => 'users#login_form'
+  # ユーザーのログイン
+  post '/login' => 'users#login'
+  # ログイン情報を受け取る
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
