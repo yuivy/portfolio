@@ -4,4 +4,7 @@
 
 <%= @user.name %>
 <%= @user.email %>
-<%= link_to("編集", "/users/#{@user.id}/edit") %>
+<% if @user.id == @current_user.id %>
+<!--詳細ページのuser.idとログイン中のuser.idが等しい場合-->
+  <%= link_to("編集", "/users/#{@user.id}/edit") %>
+<% end %>
