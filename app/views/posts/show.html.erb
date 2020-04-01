@@ -1,5 +1,10 @@
 <h1>投稿詳細画面</h1>
 
+<img src = "<%= "user/images/#{@user.image_name}" %>">
+<!--ユーザーのトプ画表示-->
+<%= link_to(@user.name, "/users/#{@user.id}") %>
+<!--ユーザー詳細ページへのリンク-->
+
 <%= @post.content %>
 <%= @post.created_at %>
 

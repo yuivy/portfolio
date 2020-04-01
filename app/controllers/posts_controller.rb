@@ -8,6 +8,8 @@ class PostsController < ApplicationController
   
   def show
     @post = Post.find_by(id: params[:id])
+    @user = User.find_by(id: @post.user_id)
+    # ユーザー情報をuserテーブルから取得しshow.html.erb内で表示する
   end
   
   def new
@@ -15,7 +17,11 @@ class PostsController < ApplicationController
   end
   
   def create
-    @post = Post.new(content: params[:content])
+    @post = Post.new(
+    content: params[:content],
+    user_id: @current_user.id
+    # 新規投稿をログインユーザーに紐付け
+    )
     if @post.save
       flash[:notice]="投稿に成功しました"
       redirect_to("/posts/index")
