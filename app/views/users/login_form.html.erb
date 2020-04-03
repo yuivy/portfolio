@@ -1,13 +1,55 @@
-<h3>ログインフォーム</h3>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <h1 class="text-center">LOGIN</h1>
+        <div class="input-group">
+          <span class="input-group-addon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></span>
+          <input type="text" class="form-control" name="email" placeholder="username" value="<%= @email %>">
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></span>
+          <input type="password" class="form-control" name="password" placeholder="password" value="<%= @password %>">
+        </div>
+        <!--make a row-->
+        <div class="row">
+          <div class="col-md-6">
+            <input type="checkbox"> <small>Remember me</small>
+          </div>
+          <div class="col-md-6">
+            <a href="#"><p class="text-right">Forget Password?</p></a>
+          </div>
+        </div>
+        <!--close-->
+        <a href="#"><div class="btn btn-danger">login</div></a>
+        
+        <!--<h5 class="text-center">OR</h5>-->
+        <div class="row" style="margin-top: 50px"></div>
+        <div class="col-md-6">
+          <a href="#"><div class="btn btn-primary">Facebook</div></a>
+        </div>
+        <div class="col-md-6">
+          <a href="#"><div class="btn btn-info">Twitter</div></a>
+        </div>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+  </div>
+</body>
 
-<% if @error_message %>
- <%= @error_message %>
-<% end %>
+<!--<% if @error_message %>-->
+<!-- <%= @error_message %>-->
+<!--<% end %>-->
 
-<%= form_tag("/login") do %>
-<p>メールアドレス</p>
-<input name="email" value="<%= @email %>">
-<p>パスワード</p>
-<input name="password" type="password" value="<%= @password %>">
-<input type="submit" value="送信">
-<% end %>
+  
+<!--<%= form_tag("/login") do %>-->
+<!--<p>メールアドレス</p>-->
+<!--<input name="email" value="<%= @email %>">-->
+<!--<p>パスワード</p>-->
+<!--<input name="password" type="password" value="<%= @password %>">-->
+<!--<input type="submit" value="送信">-->
+<!--<% end %>-->
+
+
+
