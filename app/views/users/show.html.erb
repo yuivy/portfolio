@@ -1,16 +1,20 @@
 <h1>ユーザー詳細ページ</h1>
 
-<img src="<%= "/user_images/#{@user.image_name}" %>">
+<img src="<%= "/user_images/#{@user.image_name}" %>"><br>
 
-<%= @user.name %>
-<%= @user.email %>
+<h2 class= "text-white">自己紹介</h2>
+<p>名前</p><%= @user.name %><br>
+<p>メールアドレス</p><%= @user.email %><br>
 <% if @user.id == @current_user.id %>
+<p>作品</p>
+<p>ゲームモード</p>
+<p>自己紹介</p>
 <!--詳細ページのuser.idとログイン中のuser.idが等しい場合-->
   <%= link_to("編集", "/users/#{@user.id}/edit") %>
 <% end %>
 
-<% @user.posts.each do |post| %>
-<img src="<%= "/user_images/#{post.user.image_name}" %>">
+<% @user.posts.each do |post| %><br>
+<img src="<%= "/user_images/#{post.user.image_name}" %>"><br>
 <%= link_to(post.user.name, "/users/#{post.user.id}") %>
 <%= link_to(post.content, "/posts/#{post.id}") %>
 <!--個人の投稿表示-->

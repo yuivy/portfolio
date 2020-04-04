@@ -18,7 +18,8 @@
             <input type="checkbox"> <small>Remember me</small>
           </div>
           <div class="col-md-6">
-            <a href="#"><p class="text-right">Forget Password?</p></a>
+            <a href="https://231cffa1e9ae4866b94635b52532f22d.vfs.cloud9.ap-northeast-1.amazonaws.com/signup">
+              <p class="text-right">Create an account</p></a>
           </div>
         </div>
         <!--close-->
@@ -38,18 +39,19 @@
   </div>
 </body>
 
-<!--<% if @error_message %>-->
-<!-- <%= @error_message %>-->
-<!--<% end %>-->
+
+<% if @error_message %>
+ <%= @error_message %>
+<% end %>
 
   
-<!--<%= form_tag("/login") do %>-->
-<!--<p>メールアドレス</p>-->
-<!--<input name="email" value="<%= @email %>">-->
-<!--<p>パスワード</p>-->
-<!--<input name="password" type="password" value="<%= @password %>">-->
-<!--<input type="submit" value="送信">-->
-<!--<% end %>-->
+<%= form_tag("/login") do %>
+<p>メールアドレス</p>
+<input name="email" value="<%= @email %>">
+<p>パスワード</p>
+<input name="password" type="password" value="<%= @password %>">
+<input type="submit" value="送信">
+<% end %>
 
 
 

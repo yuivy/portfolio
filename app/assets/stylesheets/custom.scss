@@ -3,13 +3,13 @@
   padding: 0px;
 }
 
-body {
-  background-image: url(image_2.jpg);
-  background-size: cover;
-  background-attachment: fixed;
-  font-family: Georgia, serif;
+// body {
+//   background-image: url(image_3.jpg);
+//   background-size: cover;
+//   background-attachment: fixed;
+//   font-family: Georgia, serif;
   
-}
+// }
 
 h1 {
   font-size: 45px;
@@ -77,5 +77,11 @@ p {
   margin-left: 40px;
   font-size: 19px;
   width: 210px;
+}
+
+// ここまでログイン、新規登録ページ
+
+p {
+  color: black;
 }
 
