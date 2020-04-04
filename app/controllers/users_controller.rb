@@ -42,6 +42,9 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     @user.name = params[:name]
     @user.email = params[:email]
+    @user.introduce = params[:introduce]
+    @user.product = params[:product]
+    @user.game_mode = params[:game_mode]
     if params[:image]
       @user.image_name = "#{@user.id}.jpg"
       image = params[:image]
