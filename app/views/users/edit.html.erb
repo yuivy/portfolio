@@ -5,11 +5,18 @@
 <% end %>
 
 <%= form_tag("/users/#{@user.id}/update", {multipart: true}) do %>
-<P>ユーザー名</P>
+<p>ユーザー名</p>
 <input name="name" value="<%= @user.name %>">
 <p>メールアドレス</p>
 <input name="email" value="<%= @user.email %>">
-<input type="submit" value="保存">
-<p>画像</p>
+<p>ゲームタイトル</p>
+<textarea rows="10" cols="30" name="product" value="<%= @user.product %>">ここに記入してください</textarea>
+<p>ゲームモード</p>
+<textarea rows="10" cols="30" name="game_mode" value="<%= @user.game_mode %>">ここに記入してください</textarea>
+<p>自己紹介</p>
+<textarea rows="10" cols="50" name="introduce" value="<%= @user.introduce %>">ここに記入してください</textarea>
+<p>プロフィール画像</p>
 <input name="image" type="file">
+<input type="submit" value="保存">
 <% end %>
+
