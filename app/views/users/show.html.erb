@@ -5,10 +5,12 @@
 <h2 class= "text-white">自己紹介</h2>
 <p>名前</p><%= @user.name %><br>
 <p>メールアドレス</p><%= @user.email %><br>
-<% if @user.id == @current_user.id %>
 <p>作品</p><%= @user.product %>
 <p>ゲームモード</p><%= @user.game_mode %>
 <p>自己紹介</p><%= @user.introduce %>
+
+<% if @user.id == @current_user.id %>
+
 <!--詳細ページのuser.idとログイン中のuser.idが等しい場合-->
   <%= link_to("編集", "/users/#{@user.id}/edit") %>
 <% end %>
