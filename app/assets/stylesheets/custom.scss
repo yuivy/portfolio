@@ -3,13 +3,12 @@
   padding: 0px;
 }
 
-// body {
-//   background-image: url(image_3.jpg);
-//   background-size: cover;
-//   background-attachment: fixed;
-//   font-family: Georgia, serif;
-  
-// }
+.body-container {
+  background-image: url(image_3.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: Georgia, serif;
+}
 
 h1 {
   font-size: 45px;
@@ -68,20 +67,74 @@ p {
 }
 
 .btn-primary {
-  margin-left: 40px;
+  float: left;
   font-size: 19px;
-  width: 210px;
+  width: 280pxpx;
 }
 
 .btn-info {
-  margin-left: 40px;
+  float:left;
+  margin-right: 40px;
   font-size: 19px;
   width: 210px;
 }
 
 // ここまでログイン、新規登録ページ
 
-p {
-  color: black;
+
+
+.posts-index-item {
+  width: 100%;
+  padding: 20px 30px;
+  background-color: white;
+  overflow: hidden;
+  box-shadow: 0 2px 6px #c1ced7;
 }
+
+.post-left img {
+  width: 50px;
+  height: 50px;
+  border-radius: 40%;
+  box-shadow: 0 2px 6px #c1ced7;
+}
+
+.post-user-name a {
+  font-weight: 600;
+}
+
+.post-user-name a:hover {
+  color: #3ecdc6;
+}
+
+.post-left {
+  float: left;
+  width: 10%;
+}
+
+.post-right {
+  float: left;
+  width: 90%;
+  padding-left: 25px;
+  text-align: left;
+}
+
+// ここまで投稿一覧
+
+.users-show {
+  background-image: url(image_4.jpg);
+}
+
+.profile-text {
+  font-size: 35px;
+
+}
+
+.profile-contents {
+  font-size: 20px;
+  float: right;
+}
+
+
+
+
 
