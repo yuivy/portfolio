@@ -1,22 +1,201 @@
-<h1>ユーザー編集ページ</h1>
 
-<% @user.errors.full_messages.each do |message| %>
-  <%= message %>
-<% end %>
+<!--<% @user.errors.full_messages.each do |message| %>-->
+<!--  <%= message %>-->
+<!--<% end %>-->
 
-<%= form_tag("/users/#{@user.id}/update", {multipart: true}) do %>
-<p>ユーザー名</p>
-<input name="name" value="<%= @user.name %>">
-<p>メールアドレス</p>
-<input name="email" value="<%= @user.email %>">
-<p>ゲームタイトル</p>
-<textarea rows="10" cols="30" name="product" value="<%= @user.product %>">ここに記入してください</textarea>
-<p>ゲームモード</p>
-<textarea rows="10" cols="30" name="game_mode" value="<%= @user.game_mode %>">ここに記入してください</textarea>
-<p>自己紹介</p>
-<textarea rows="10" cols="50" name="introduce" value="<%= @user.introduce %>">ここに記入してください</textarea>
-<p>プロフィール画像</p>
-<input name="image" type="file">
-<input type="submit" value="保存">
-<% end %>
+
+
+    		
+<!--	      <%= form_tag("/users/#{@user.id}/update", {multipart: true}) do %>-->
+<!--	        <p>ユーザー名</p>-->
+<!--	        <input name="name" value="<%= @user.name %>">-->
+<!--	        <p>メールアドレス</p>-->
+<!--	        <input name="email" value="<%= @user.email %>">-->
+<!--	        <p>ゲームタイトル</p>-->
+<!--	        <input name="product" value="<%= @user.product %>">-->
+<!--	        <p>ゲームモード</p>-->
+<!--	        <input name="game_mode" value="<%= @user.game_mode %>">-->
+<!--	        <p>自己紹介</p>-->
+<!--	        <input name="introduce" value="<%= @user.introduce %>">-->
+<!--	        <p>プロフィール画像</p>-->
+<!--	        <input name="image" type="file"><br>-->
+<!--	        <input type="submit" value="保存">-->
+<!--			<% end %>-->
+
+
+<body class="bg-light">
+
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-4 order-md-2 mb-4">
+ 
+
+              <div class="input-group-append">
+              </div>
+            </div>
+
+        <div class="col-md-8 order-md-1">
+          <h4 class="mb-3">Profile edit</h4>
+          <form class="needs-validation" novalidate="">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="invalid-feedback">
+                </div>
+              </div>
+              
+              <div class="col-md-6 mb-3">
+                <div class="invalid-feedback">
+                </div>
+              </div>
+            </div>
+
+<!--ユーザーネーム-->
+            <div class="mb-3">
+              <label for="username">Username</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="username" placeholder="username" value="<%= @user.name %>">
+                <div class="invalid-feedback" style="width: 100%;">
+                  Your username is required.
+                </div>
+              </div>
+            </div>
+						
+<!--メールアドレス-->
+            <div class="mb-3">
+              <label for="email">Email</label>
+              <input type="text" class="form-control" id="email" placeholder="you@example.com" value="<%= @user.email %>">
+              <div class="invalid-feedback">
+                Please enter a valid email address for shipping updates.
+              </div>
+            </div>
+
+<!--好きなゲームタイトル-->
+            <div class="mb-3">
+              <label for="product">Like Game Title</label>
+              <input type="text" class="form-control" id="product" placeholder="MW,BO4 etc.." value="<%= @user.product %>">
+              <div class="invalid-feedback">
+                Please enter your shipping address.
+              </div>
+            </div>
+
+<!--好きなゲームモード-->
+            <div class="mb-3">
+              <label for="game_mode">Like Game Mode</label>
+              <input type="text" class="form-control" id="game_mode" placeholder="TDM,S&D etc..." value="<%= @user.game_mode %>">
+            </div>
+
+            <div class="row">
+              <div class="col-md-3 mb-3">
+                <label for="game_title">Like Game Title</label>
+                <select class="custom-select d-block w-100" id="game_title" required="">
+                  <option value="">
+                  <option>MW</option>
+                  <option>BO4</option>
+                  <option>WWII</option>
+                  <option>MWR</option>
+                  <option>IW</option>
+                  <option>BO3</option>
+                  <option>AW</option>
+                  <option>Ghost</option>
+                  <option>BO2</option>
+                  <option>MW3</option>
+                  <option>BO</option>
+                  <option>MW2</option>
+                  <option>WAW</option>
+                  <option>COD4</option>
+                </select>
+              </div>
+              
+              <div class="col-md-3 mb-3">
+                <label for="game_mode">Like Game Mode</label>
+                <select class="custom-select d-block w-100" id="game_mode" required="">
+                  <option value="">
+                  <option>TEAM DEATH MATCH</option>
+                  <option>DOMINATION</option>
+                  <option>SEATH & DESTROY</option>
+                  <option>KILL CONFIRMED</option>
+                  <option>HARDPOINT</option>
+                  <option>SR 2on2</option>
+                  <option>混合</option>
+                  <option>その他</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please provide a valid state.
+                </div>
+              </div>
+              
+              <div class="col-md-3 mb-3">
+                <label for="weapon">Like Weapon</label>
+                <select class="custom-select d-block w-100" id="weapon" required="">
+                  <option value="">
+                 	<option>SMG</option>
+                 	<option>AR</option>
+                 	<option>LMG</option>
+                 	<option>SR</option>
+                 	<option>SG</option>
+                 	<option>Knife</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please provide a valid state.
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+								<label for="user_icon">User Icon</label>
+								<input name="image" type="file">
+              </div>
+
+
+            
+            <div class="row">
+              <div class="col-md-3 mb-3">
+              </div>
+              
+              <div class="col-md-3 mb-3">
+              </div>
+            </div>
+            
+            <hr class="mb-4">
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Save</button>
+          </form>
+        </div>
+      </div>
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+    </script>
+    
+  
+
+</body>
+
 
