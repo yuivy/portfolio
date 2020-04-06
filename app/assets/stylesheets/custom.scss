@@ -116,6 +116,8 @@ p {
   width: 90%;
   padding-left: 25px;
   text-align: left;
+  word-break: break-all;
+  // 改行する
 }
 
 // ここまで投稿一覧
