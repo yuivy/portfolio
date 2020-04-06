@@ -1,11 +1,19 @@
-<h1>編集ページ</h1>
-
-<%= form_tag("/posts/#{@post.id}/update") do %>
-
-  <% @post.errors.full_messages.each do |message| %>
-    <%= message %>
-  <% end %>
-<!--投稿に失敗したらエラーを表示する-->
-<textarea name="content"><%= @post.content %></textarea>
-<input type="submit" value="保存">
-<% end %>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="errors-text">
+        <% @post.errors.full_messages.each do |message| %>
+          <%= message %>
+        <% end %>
+        </div>
+      </div>
+      <div class="col-md-6 offset-md-3">
+        <%= form_tag("/posts/#{@post.id}/update") do %>
+          <textarea class="textlines" name="content"><%= @post.content %></textarea>
+          <input class ="new-submit" type="submit" value="Post">
+        <% end %>
+      </div>
+    </div>
+  </div>
+</body>
