@@ -1,26 +1,26 @@
-<!--<h1>ユーザー詳細ページ</h1>-->
+<h1>ユーザー詳細ページ</h1>
 
-<!--<img src="<%= "/user_images/#{@user.image_name}" %>"><br>-->
+<img src="<%= "/user_images/#{@user.image_name}" %>"><br>
 
-<!--<h2 class= "text-white">自己紹介</h2>-->
-<!--<p>名前</p><%= @user.name %><br>-->
-<!--<p>メールアドレス</p><%= @user.email %><br>-->
-<!--<p>作品</p><%= @user.product %>-->
-<!--<p>ゲームモード</p><%= @user.game_mode %>-->
-<!--<p>自己紹介</p><%= @user.introduce %>-->
+<h2 class= "text-white">自己紹介</h2>
+<p>名前</p><%= @user.name %><br>
+<p>メールアドレス</p><%= @user.email %><br>
+<p>作品</p><%= @user.product %>
+<p>ゲームモード</p><%= @user.game_mode %>
+<p>自己紹介</p><%= @user.introduce %>
 
-<!--<% if @user.id == @current_user.id %>-->
+<% if @user.id == @current_user.id %>
 
-<!--詳細ページのuser.idとログイン中のuser.idが等しい場合-->
-<!--  <%= link_to("編集", "/users/#{@user.id}/edit") %>-->
-<!--<% end %>-->
+詳細ページのuser.idとログイン中のuser.idが等しい場合
+  <%= link_to("編集", "/users/#{@user.id}/edit") %>
+<% end %>
 
-<!--<% @user.posts.each do |post| %><br>-->
-<!--<img src="<%= "/user_images/#{post.user.image_name}" %>"><br>-->
-<!--<%= link_to(post.user.name, "/users/#{post.user.id}") %>-->
-<!--<%= link_to(post.content, "/posts/#{post.id}") %>-->
-<!--個人の投稿表示-->
-<!--<% end %>-->
+<% @user.posts.each do |post| %><br>
+<img src="<%= "/user_images/#{post.user.image_name}" %>"><br>
+<%= link_to(post.user.name, "/users/#{post.user.id}") %>
+<%= link_to(post.content, "/posts/#{post.id}") %>
+個人の投稿表示
+<% end %>
 
 <body class="users-show">
   <div class="container">

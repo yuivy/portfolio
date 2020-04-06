@@ -134,7 +134,36 @@ p {
   float: right;
 }
 
+.container-new h1 {
+  background-color: red;
+}
+.row-new h1 {
+  background-color: blue;
+}
+
+.textlines {
+  border: 2px solid #0a0;
+  border-radius: 0.67em;
+  padding: 1em;
+  background-color: snow;
+  width: 100%;
+  box-sizing: border-box;
+  height: 120px
+}
 
 
 
+.errors-text {
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #dc143c;
+}
 
+.new-submit {
+  margin: 20px;
+  padding: 5px;
+  border-radius: 30px;
+  border-color: #0a0;
+  letter-spacing: 0.5em
+}

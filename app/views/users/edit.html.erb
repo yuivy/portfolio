@@ -1,26 +1,26 @@
 
-<!--<% @user.errors.full_messages.each do |message| %>-->
-<!--  <%= message %>-->
-<!--<% end %>-->
+<% @user.errors.full_messages.each do |message| %>
+  <%= message %>
+<% end %>
 
 
 
     		
-<!--	      <%= form_tag("/users/#{@user.id}/update", {multipart: true}) do %>-->
-<!--	        <p>ユーザー名</p>-->
-<!--	        <input name="name" value="<%= @user.name %>">-->
-<!--	        <p>メールアドレス</p>-->
-<!--	        <input name="email" value="<%= @user.email %>">-->
-<!--	        <p>ゲームタイトル</p>-->
-<!--	        <input name="product" value="<%= @user.product %>">-->
-<!--	        <p>ゲームモード</p>-->
-<!--	        <input name="game_mode" value="<%= @user.game_mode %>">-->
-<!--	        <p>自己紹介</p>-->
-<!--	        <input name="introduce" value="<%= @user.introduce %>">-->
-<!--	        <p>プロフィール画像</p>-->
-<!--	        <input name="image" type="file"><br>-->
-<!--	        <input type="submit" value="保存">-->
-<!--			<% end %>-->
+	      <%= form_tag("/users/#{@user.id}/update", {multipart: true}) do %>
+	        <p>ユーザー名</p>
+	        <input name="name" value="<%= @user.name %>">
+	        <p>メールアドレス</p>
+	        <input name="email" value="<%= @user.email %>">
+	        <p>ゲームタイトル</p>
+	        <input name="product" value="<%= @user.product %>">
+	        <p>ゲームモード</p>
+	        <input name="game_mode" value="<%= @user.game_mode %>">
+	        <p>自己紹介</p>
+	        <input name="introduce" value="<%= @user.introduce %>">
+	        <p>プロフィール画像</p>
+	        <input name="image" type="file"><br>
+	        <input type="submit" value="保存">
+			<% end %>
 
 
 <body class="bg-light">
@@ -145,11 +145,9 @@
 								<input name="image" type="file">
               </div>
 
-
-            
-            <div class="row">
-              <div class="col-md-3 mb-3">
-              </div>
+              <label for="username">Introduce</label>
+              <textarea class="form-control" rows="3" placeholder="Hello World!" value="<%= @user.introduce %>"></textarea>
+    
               
               <div class="col-md-3 mb-3">
               </div>
