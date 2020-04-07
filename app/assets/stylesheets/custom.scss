@@ -120,7 +120,13 @@ p {
   // 改行する
 }
 
-// ここまで投稿一覧
+.post-right p {
+  color: black;
+  font-size: 15px;
+}
+
+
+// ここまで投稿一覧、ユーザー一覧ページ
 
 .users-show {
   background-image: url(image_4.jpg);
