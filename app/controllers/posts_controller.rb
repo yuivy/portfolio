@@ -24,7 +24,7 @@ class PostsController < ApplicationController
     # 新規投稿をログインユーザーに紐付け
     )
     if @post.save
-      flash[:notice]="投稿に成功しました"
+      flash[:success]="投稿に成功しました"
       redirect_to("/posts/index")
     else
       render("/posts/new")
@@ -39,7 +39,7 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @post.content = params[:content]
     if @post.save
-        flash[:notice]="編集に成功しました"
+        flash[:success]="編集に成功しました"
         # 変数flash
       redirect_to("/posts/index")
     else
@@ -58,7 +58,7 @@ class PostsController < ApplicationController
     # 正しいユーザーか確かめる
     @post = Post.find_by(id: params[:id])
     if @post.user_id != @current_user.id
-      flash[:notice] = "あなたに権限はありません"
+      flash[:danger] = "あなたに権限はありません"
       redirect_to("/posts/index")
     end
   end

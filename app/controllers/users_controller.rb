@@ -27,7 +27,7 @@ class UsersController < ApplicationController
       )
     if @user.save
       session[:user_id] = @user.id
-      flash[:notice]="ユーザー登録が完了しました"
+      flash[:success]="ユーザー登録が完了しました"
       redirect_to("/users/#{@user.id}")
     else
       render("/users/new")
@@ -52,7 +52,7 @@ class UsersController < ApplicationController
     end
     
     if @user.save
-      flash[:notice]="更新が完了しました"
+      flash[:success]="更新が完了しました"
       redirect_to("/users/#{@user.id}")
     else
       render("/users/edit")
@@ -67,7 +67,7 @@ class UsersController < ApplicationController
     if @user
       session[:user_id] = @user.id
       # 変数session→ログイン後ページが変わってもログイン状態を維持
-      flash[:notice] = "ログインに成功しました"
+      flash[:success] = "ログインに成功しました"
       redirect_to("/posts/index")
     else
       @error_message = "メールアドレスまたはパスワードが間違っています"
@@ -80,7 +80,7 @@ class UsersController < ApplicationController
   
   def logout
     session[:user_id] = nil
-    flash[:notice] = "ログアウトしました"
+    flash[:success] = "ログアウトしました"
     redirect_to("/login")
   end
   
@@ -89,7 +89,7 @@ class UsersController < ApplicationController
     if @current_user.id != params[:id].to_i
       # paramsは文字列として持ってくるのでidを数列にするためには「.to_i」をつける
       # 「!=」は"等しくないという"意味
-      flash[:notice] = "あなたに権限はありません"
+      flash[:danger] = "あなたに権限はありません"
       redirect_to("/posts/index")
     end
   end
