@@ -18,4 +18,5 @@
 //= require_tree .
 $(function(){
   setTimeout("$('.alert-success').fadeOut('slow')", 1000) 
+  setTimeout("$('.alert-danger').fadeOut('slow')", 1000)
 })/* global $ */
