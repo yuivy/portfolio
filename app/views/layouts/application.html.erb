@@ -29,7 +29,8 @@
           <%= link_to "Post New", posts_new_path, class: 'nav-link disabled' %>
         </li>      
         <li class="nav-item">
-          <%= link_to "@current_user.name", ("/users/#{@current_user.id}"), class: 'nav-link disabled' %>
+          <%= link_to @current_user.name, ("/users/#{@current_user.id}"), class: 'nav-link disabled' %>
+          <!--変数は""で囲むと文字列として認識されるからつけない-->
         </li>
         <li class="nav-item">
           <%= link_to "ALl Posts", posts_index_path, class: 'nav-link disabled' %>
@@ -59,12 +60,15 @@
       </div>
     </nav>
     <!--ナビゲーションバー-->
+    
+    
     <% if flash[:success] %>
       <div class="alert alert-success">
         <%= flash[:success] %>
       </div>
-    <% elsif %>
+    <% elsif flash[:danger] %> 
       <div class="alert alert-danger">
+
         <%= flash[:danger] %>
       </div>
     <% end %>
