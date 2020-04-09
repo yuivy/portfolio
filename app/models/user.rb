@@ -5,6 +5,8 @@ class User < ApplicationRecord
   validates :introduce, {presence: true, length:{maximum: 255}}
   validates :product, {presence: true, length:{maximum: 50}}
   validates :game_mode, {presence: true, length:{maximum: 50}}
+  has_many :comments
+  
   def posts
     return Post.where(user_id: self.id)
   end
