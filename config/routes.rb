@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  
+    resources :posts do
+    resources :comments, only: [:create]
+  end
+  
   get '/' => 'home#top'
   # トップページ
   get '/about' => 'home#about'
@@ -35,4 +40,5 @@ Rails.application.routes.draw do
   # ログイン情報を受け取る
   post '/logout' => 'users#logout'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
 end
