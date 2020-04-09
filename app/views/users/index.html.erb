@@ -1,7 +1,17 @@
-<h1>ユーザー一覧ページ</h1>
-
-<% @users.each do |user| %>
-<p><%= user.name %></p>
-<img src="<%= "/user_images/#{user.image_name}" %>">
-<%= link_to(user.name, "/users/#{user.id}") %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mt-5 offset-md-3">
+      <% @users.each do |user| %>
+        <div class="posts-index-item">
+          <div class="post-left">
+            <img src="<%= "/user_images/#{user.image_name}" %>">
+          </div>
+          <div class="post-right">
+            <%= link_to(user.name, "/users/#{user.id}") %>
+            <p>ここに自己紹介の一部を掲載</p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

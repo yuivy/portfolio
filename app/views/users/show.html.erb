@@ -1,44 +1,58 @@
-<h1>ユーザー詳細ページ</h1>
+<div class="container mt-5">
+  <div class="border border-secondary" style="padding:30px;">
+    <div class="fdb-box">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-10 col-sm-6 col-md-4 col-lg-3 col-xl-2 m-auto">
+          <img alt="image" class="img-fluid rounded-circle" src="<%= "/user_images/#{@user.image_name}" %>">
+        </div>
+          
+        <div class="col-12 col-md-8 ml-auto mr-auto mt-4 mt-md-0">
+          <p class="lead">
+            <i class=" fas fa-user fa-flip-horizontal "></i>(user name) : <%= @user.name %>
+          </p>
+          <p class="lead">
+            <i class=" fas fa-rocket "></i>(like title) : <%= @user.product %>
+          </p>
+          <p class="lead">
+            <i class=" fas fa-star "></i>(like game mode) : <%= @user.game_mode %>
+          </p>
+          <p class="lead">
+            <i class=" fas fa-comment fa-flip-horizontal "></i>(introduce) : <%= @user.introduce %>
+          </p>
+          <% if @user.id == @current_user.id %>
 
-<img src="<%= "/user_images/#{@user.image_name}" %>"><br>
-
-<h2 class= "text-white">自己紹介</h2>
-<p>名前</p><%= @user.name %><br>
-<p>メールアドレス</p><%= @user.email %><br>
-<p>作品</p><%= @user.product %>
-<p>ゲームモード</p><%= @user.game_mode %>
-<p>自己紹介</p><%= @user.introduce %>
-
-<% if @user.id == @current_user.id %>
-
-詳細ページのuser.idとログイン中のuser.idが等しい場合
-  <%= link_to("編集", "/users/#{@user.id}/edit") %>
-<% end %>
-
-<% @user.posts.each do |post| %><br>
-<img src="<%= "/user_images/#{post.user.image_name}" %>"><br>
-<%= link_to(post.user.name, "/users/#{post.user.id}") %>
-<%= link_to(post.content, "/posts/#{post.id}") %>
-個人の投稿表示
-<% end %>
-
-<body class="users-show">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 ">
-        <h1 class="profile-text">プロフィール</h1>
-          <img src="<%= "/user_images/#{@user.image_name}" %> ">
-        <div class="profile-contents">
-          <ul>
-            <li>
-              <%= @user.name %>
-            </li>
-            <li>
-              <%= @user.product %>
-            </li>
-          </ul>
+          <!--詳細ページのuser.idとログイン中のuser.idが等しい場合-->
+            <%= link_to("Edit", "/users/#{@user.id}/edit", class: "btn btn-primary btn-sm" )%>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
-</body>
+</div>
+
+
+
+
+
+<!--個別ユーザーの投稿内容-->
+<div class="main posts-index">
+  <div class="container">
+    <div class="row　">
+      <div class="col-md-6 mt-5 offset-md-3">
+        <% @user.posts.each do |post| %>
+          <div class="posts-index-item">
+            <div class="post-left">
+              <img src="<%= "/user_images/#{post.user.image_name}" %>">
+            </div>
+            <div class="post-right">
+              <div class="post-user-name">
+                <%= link_to(post.user.name, "/users/#{post.user.id}") %>
+              </div>
+            <%= link_to(post.content, "/posts/#{post.id}") %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

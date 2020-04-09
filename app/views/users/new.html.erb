@@ -27,14 +27,6 @@
         </div>
           <a href="#"><div class="btn btn-danger">Signup</div></a>
           
-          <div class="row" style="margin-top: 30px"></div>
-          <div class="col-md-6">
-            <a href="#"><div class="btn btn-primary">Facebook</div></a>
-          </div>
-          <div class="row" style="margin-top: 15px"></div>
-          <div class="col-md-6">
-            <a href="#"><div class="btn btn-info">Twitter　</div></a>
-          </div>
         </div>
       </div>
       <div class="col-md-3"></div>
@@ -49,20 +41,20 @@
 
 
 
-<!--<h1>新規ユーザー登録ページ</h1>-->
+<h1>新規ユーザー登録ページ</h1>
 
-<!--<% @user.errors.full_messages.each do |message| %>-->
-<!--  <%= message %>-->
-<!--<% end %>-->
+<% @user.errors.full_messages.each do |message| %>
+  <%= message %>
+<% end %>
 
-<!--<%= form_tag("/users/create") do %>-->
+<%= form_tag("/users/create") do %>
 
-<!--  <p>ユーザー名</p>-->
-<!--  <input name="name" value="<%= @user.name %>">-->
-<!--  <p>メールアドレス</p>-->
-<!--  <input name="email" value="<%= @user.email %>">-->
-<!--  <p>パスワード</p>-->
-<!--  <input name="password" type="password" value="<%= @user.password %>"><br>-->
+  <p>ユーザー名</p>
+  <input name="name" value="<%= @user.name %>">
+  <p>メールアドレス</p>
+  <input name="email" value="<%= @user.email %>">
+  <p>パスワード</p>
+  <input name="password" type="password" value="<%= @user.password %>"><br>
 
-<!--  <input type="submit" value="新規登録">-->
-<!--<% end %>-->
+  <input type="submit" value="新規登録">
+<% end %>

@@ -53,11 +53,11 @@ small {
   margin-left: 8px;
 }
 
-p {
-  margin-top: 20px;
-  font-size: 19px;
-  color: #fff;
-}
+// p {
+//   margin-top: 20px;
+//   font-size: 19px;
+//   color: #fff;
+// }
 
 .btn-danger {
   margin-top: 20px;
@@ -116,9 +116,17 @@ p {
   width: 90%;
   padding-left: 25px;
   text-align: left;
+  word-break: break-all;
+  // 改行する
 }
 
-// ここまで投稿一覧
+.post-right p {
+  color: black;
+  font-size: 15px;
+}
+
+
+// ここまで投稿一覧、ユーザー一覧ページ
 
 .users-show {
   background-image: url(image_4.jpg);
@@ -166,4 +174,12 @@ p {
   border-radius: 30px;
   border-color: #0a0;
   letter-spacing: 0.5em
+}
+
+.h-caption {
+  text-align: center;
+}
+
+.alert-success {
+  text-align: center;
 }

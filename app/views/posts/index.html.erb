@@ -1,8 +1,7 @@
 <div class="main posts-index">
   <div class="container">
     <div class="row">
-
-      <div class="col-md-8">
+      <div class="col-md-6 mt-5 offset-md-3">
         <% @posts.each do |post| %>
           <div class="posts-index-item">
             <div class="post-left">
@@ -12,7 +11,7 @@
               <div class="post-user-name">
                 <%= link_to(post.user.name, "/users/#{post.user.id}") %>
               </div>
-              <%= link_to(post.content, "/posts/#{post.id}") %>
+            <%= link_to(post.content, "/posts/#{post.id}") %>
             </div>
           </div>
         <% end %>
@@ -20,6 +19,8 @@
     </div>
   </div>
 </div>
+
+
 
 
 

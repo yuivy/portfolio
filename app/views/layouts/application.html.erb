@@ -1,55 +1,82 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Portfolio</title>
+<head>
+  <title>Portfolio</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css" type="text/css" media="all" />
 
-  </head>
+</head>
   <body>
-    <header>
-      <ul class="header-menus">
-        <% if @current_user %>
-        <!--ログインしている時に表示される項目-->
-          <li>
-            <%= link_to(@current_user.name, "/users/#{@current_user.id}") %>
-          </li>
-          <li>
-            <%= link_to("投稿一覧", "/posts/index") %>
-          </li>
-          <li>
-            <%= link_to("新規投稿", "/posts/new") %>
-          </li>
-          <li>
-            <%= link_to("ユーザー一覧", "/users/index") %>
-          </li>
-          <li>
-            <%= link_to("ログアウト", "/logout", {method: :post}) %>
-          </li>
-        <% else %>
-        <!--ログインしていない時に表示される項目-->
-          <li>
-            <%= link_to("TweetAppとは", "/about") %>
-          </li>
-          <li>
-            <%= link_to("新規登録", "/signup") %>
-          </li>
-          <li>
-            <%= link_to("ログイン", "/login") %>
-          </li>
-        <% end %>
-      </ul>
-    </header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="https://231cffa1e9ae4866b94635b52532f22d.vfs.cloud9.ap-northeast-1.amazonaws.com/">Want to play COD</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!--Navbar-->
 
-    <% if flash[:notice] %>
-      <div class="flash">
-        <%= flash[:notice] %>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+      <% if @current_user %>
+      <!--<li class="nav-item active">-->
+      <!--  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
+      <!--</li>-->
+        <li class="nav-item">
+          <%= link_to "Post New", posts_new_path, class: 'nav-link disabled' %>
+        </li>      
+        <li class="nav-item">
+          <%= link_to @current_user.name, ("/users/#{@current_user.id}"), class: 'nav-link disabled' %>
+          <!--変数は""で囲むと文字列として認識されるからつけない-->
+        </li>
+        <li class="nav-item">
+          <%= link_to "ALl Posts", posts_index_path, class: 'nav-link disabled' %>
+        </li>  
+        <li class="nav-item">
+          <%= link_to "All User", users_index_path, class: 'nav-link disabled' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Logout", logout_path, method: :post, class: 'nav-link disabled' %>
+        </li>
+          <% else %>
+        <li class="nav-item">
+          <%= link_to "Call of Duty", about_path, class: 'nav-link disabled' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Login", login_path, class: 'nav-link disabled' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Signup", signup_path, class: 'nav-link disabled' %>
+        </li>
+        <% end %>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+    <!--ナビゲーションバー-->
+    
+    
+    <% if flash[:success] %>
+      <div class="alert alert-success">
+        <%= flash[:success] %>
+      </div>
+    <% elsif flash[:danger] %> 
+      <div class="alert alert-danger">
+
+        <%= flash[:danger] %>
       </div>
     <% end %>
+    <!--フラッシュメッセージ-->    
     
+      
+    
+
       <%= yield %>
       
   </body>
