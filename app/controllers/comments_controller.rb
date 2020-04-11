@@ -1,9 +1,8 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   
   def create
-    post = Post.find(params[:post_id])
-    @comment = post.comments.new(comment_params)
+    @comment = Comment.new(comment_params)
     @comment.user_id = @current_user.id
     if @comment.save
       flash[:success] = "コメントしました"
@@ -11,7 +10,7 @@ class CommentsController < ApplicationController
 
     else
       flash[:danger] = "コメントできませんでした"
-      render()
+      render("/posts/show")
       # コメント入力viewに戻る
     end
   end
@@ -19,6 +18,6 @@ class CommentsController < ApplicationController
   private
   
   def comment_params
-    params.require(:comment).permit(:content)
+    params.require(:comment).permit(:content, :post_id)
   end
 end
