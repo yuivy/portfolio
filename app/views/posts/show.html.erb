@@ -12,26 +12,36 @@
 <% if @post.user_id ==  @current_user.id %>
   <%= link_to("編集", "/posts/#{@post.id}/edit") %>
   <%= link_to("削除", "/posts/#{@post.id}/destroy", {method:"post"}) %>
+  
+  
+  <%= link_to "編集", "edit_posts_path(:id)" %>
+  
 <% end %>
 <!--他のユーザーの投稿を編集、削除できないようにする-->
 
 
 
-<div class="comment-wrapper border-top　mb-10">
-  <p class="mt-5">コメント一覧</p>
+<h2>コメント一覧</h2>
+  
   <% @comments.each do |comment| %>
-    <div>
-      <% unless comment.user.blank? %>
-        <%= link_to(comment.user.name, "/users/#{comment.user.id}") %>
-      <% end %>
-      <%= comment.user.name unless comment.user.blank? %>
+  
+    <% unless comment.user.blank? %>
+      <%= link_to(comment.user.name, "/users/#{comment.user.id}") %>
+    <% end %>
+    <%= comment.user.name unless comment.user.blank? %>
       <br />
-      <%= comment.content %>
-    </div>
-    <br />
+    <%= comment.content %>
+    <% if comment.user_id ==  @current_user.id %>
+      <%= link_to("編集", "/comments/#{comment.id}/edit") %>
+      <%= link_to("削除", "/comments/#{comment.id}/destroy", {method:"comment"}) %>
+    <% end %>
   <% end %>
 
-  <%= form_with(model: [@comment], local: true) do |f| %>
+
+
+
+<h3>コメント入力フォーム</h3>
+  <%= form_with(model: @comment, local: true) do |f| %>
   <%= f.hidden_field "post_id", value: @post.id %>
   
     <%= f.text_area :content, class: "form-control", rows: 3 %>

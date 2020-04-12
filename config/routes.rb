@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-    resources :comments, only: [:create]
+    resources :comments, only: [:create, :update]
   # end
   
   get '/' => 'home#top'
@@ -39,5 +39,8 @@ Rails.application.routes.draw do
   # ログイン情報を受け取る
   post '/logout' => 'users#logout'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
+  
+  get 'comments/:id/edit' => "comments#edit"
+  # コメント編集ページ
+  post 'comments/:id/destroy' => 'comments#destroy'
 end
