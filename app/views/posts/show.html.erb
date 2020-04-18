@@ -41,14 +41,15 @@
             <% end %>
             <%= comment.user.name unless comment.user.blank? %>
               <br />
-            <%= comment.content %>
+            <%= comment.content %><br>
+            <%= comment.created_at %>
           </div>
         </div>
       </div>
       <div class="col-md-6 mt-5 offset-md-3">
           <% if comment.user_id ==  @current_user.id %>
             <%= link_to("編集", "/comments/#{comment.id}/edit", class: "btn btn-primary btn-sm") %>
-            <%= link_to("削除", "/comments/#{comment.id}/destroy", {method:"comment"}) %>
+            <%= link_to("削除", "/comments/#{comment.id}/destroy",  class: "btn btn-primary btn-sm") %>
           <% end %>
         <% end %>         
       </div>
@@ -65,7 +66,6 @@
         <% end %>
         </div>
       </div>
-      
     </div>
   </div>
 </div>
