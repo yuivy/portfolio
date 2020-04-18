@@ -2,9 +2,10 @@ class User < ApplicationRecord
   validates :name, {presence: true}
   validates :email, {presence: true, uniqueness: true}
   validates :password, {presence: true}
-  validates :introduce, {presence: true, length:{maximum: 255}}
-  validates :product, {presence: true, length:{maximum: 50}}
-  validates :game_mode, {presence: true, length:{maximum: 50}}
+  
+  # validates :introduce, {presence: true, length:{maximum: 255}}
+  # validates :product, {presence: true, length:{maximum: 50}}
+  # validates :game_mode, {presence: true, length:{maximum: 50}}
   has_many :comments
   
   def posts
