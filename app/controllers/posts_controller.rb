@@ -11,6 +11,8 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @user = @post.user
     # ユーザー情報をuserテーブルから取得しshow.html.erb内で表示する
+    @comments = @post.comments
+    @comment = @post.comments.build
   end
   
   def new

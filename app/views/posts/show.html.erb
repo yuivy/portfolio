@@ -1,15 +1,76 @@
-<h1>投稿詳細画面</h1>
+<div class="main posts-index">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 mt-5 offset-md-3">
+          <div class="posts-index-item">
+            <div class="post-left">
+              <img src = "<%= "user/images/#{@user.image_name}" %>">
+              <!--ユーザーのアイコン画像-->
+            </div>
+            <div class="post-right">
+              <div class="post-user-name">
+                <%= link_to(@user.name, "/users/#{@user.id}") %>
+                <!--ユーザー詳細ページへのリンク-->
+              </div>
+              <%= @post.content %><br>
+              <!--投稿内容-->
+              <%= @post.created_at.to_s(:datetime_jp) %>
+              <!--投稿時間-->
+            </div>
+          </div>
+      </div>
+      <div class="col-md-6 mt-5 offset-md-3">
+        <% if @post.user_id ==  @current_user.id %>
+          <%= link_to("編集", "/posts/#{@post.id}/edit", class: "btn btn-primary btn-sm") %>
+          <%= link_to("削除", "/posts/#{@post.id}/destroy", {method:"post"}) %>
+        <% end %>
+        <!--他のユーザーの投稿を編集、削除できないようにする-->        
+      </div>
+      
+      <div class="col-md-6 mt-5 offset-md-3">
+        <div class="posts-index-item">
+          <div class="post-left">
+            <img src = "<%= "user/images/#{@user.image_name}" %>">
+          </div>
+          <div class="post-right">
+            
+            <% @comments.each do |comment| %>
+  
+            <% unless comment.user.blank? %>
+              <%= link_to(comment.user.name, "/users/#{comment.user.id}") %>
+            <% end %>
+            <%= comment.user.name unless comment.user.blank? %>
+              <br />
+            <%= comment.content %><br>
+            <%= comment.created_at %>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mt-5 offset-md-3">
+          <% if comment.user_id ==  @current_user.id %>
+            <%= link_to("編集", "/comments/#{comment.id}/edit", class: "btn btn-primary btn-sm") %>
+            <%= link_to("削除", "/comments/#{comment.id}/destroy",  class: "btn btn-primary btn-sm") %>
+          <% end %>
+        <% end %>         
+      </div>
+      
+      <!--コメント内容一覧-->
+      <div class="col-md-6 mt-5 offset-md-3">
+        <%= form_with(model: @comment, local: true) do |f| %>
+        <%= f.hidden_field "post_id", value: @post.id %>
+        <div class="textarea-reply">
+          <%= f.text_area :content, class: "form-control", rows: 3 %>
+          <%= button_tag type: "submit", class: "btn btn-danger float-right mt-1" do %>
+            <i class="far fa-comments"></i> コメントする
+          <% end %>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<img src = "<%= "user/images/#{@user.image_name}" %>">
-<!--ユーザーのトプ画表示-->
-<%= link_to(@user.name, "/users/#{@user.id}") %>
-<!--ユーザー詳細ページへのリンク-->
 
-<%= @post.content %>
-<%= @post.created_at %>
 
-<% if @post.user_id ==  @current_user.id %>
-  <%= link_to("編集", "/posts/#{@post.id}/edit") %>
-  <%= link_to("削除", "/posts/#{@post.id}/destroy", {method:"post"}) %>
-<% end %>
-<!--他のユーザーの投稿を編集、削除できないようにする-->
+ 
+</div>

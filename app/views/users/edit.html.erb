@@ -6,7 +6,8 @@
 
 
     		
-	      <%= form_tag("/users/#{@user.id}/update", {multipart: true}) do %>
+
+	      <%= form_tag(user_path(@user.id), method: :patch) do %>
 	        <p>ユーザー名</p>
 	        <input name="name" value="<%= @user.name %>">
 	        <p>メールアドレス</p>

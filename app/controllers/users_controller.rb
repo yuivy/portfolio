@@ -45,11 +45,11 @@ class UsersController < ApplicationController
     @user.introduce = params[:introduce]
     @user.product = params[:product]
     @user.game_mode = params[:game_mode]
-    if params[:image]
-      @user.image_name = "#{@user.id}.jpg"
-      image = params[:image]
-      File.binwrite("public/user_images/#{@user.image_name}", image.read)
-    end
+    # if params[:image]
+    #   @user.image_name = "#{@user.id}.jpg"
+    #   image = params[:image]
+    #   File.binwrite("public/user_images/#{@user.image_name}", image&.read)
+    # end
     
     if @user.save
       flash[:success]="更新が完了しました"
